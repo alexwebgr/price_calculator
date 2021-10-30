@@ -18,6 +18,9 @@ class Main
       start: 50,
       end: 999999
     }]
+
+  private
+
   attr_reader :base_price
 
   def initialize(base_price)
@@ -35,6 +38,8 @@ class Main
       ((diff.to_f * tier[:prc]) / 100)
     end
   end
+
+  public
 
   def calculate
     raise OutOfRangeError, 'Out of range' if base_price > TIERS.last[:end]
