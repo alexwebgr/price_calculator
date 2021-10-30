@@ -1,3 +1,5 @@
+class OutOfRangeError < StandardError; end
+
 class Main
   TIERS = [{
       prc: 51,
@@ -35,6 +37,7 @@ class Main
   end
 
   def calculate
+    raise OutOfRangeError, 'Out of range' if base_price > TIERS.last[:end]
     (base_price + calculate_diff).round(2)
   end
 end
